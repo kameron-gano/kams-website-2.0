@@ -9,27 +9,58 @@
 }
 
 .test {
-  height: 100%;
-  padding: 24px 24px;
-  background-color: #001220;
-  border: 1px solid;
-  border-color: var(--violet);
-  transition: font-weight 600ms, border-color 600ms, scale 600ms, box-shadow 800ms;
+  min-height: auto;
+  padding: clamp(22px, 5vw, 34px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+    #001220;
+  border: 1px solid rgba(245, 143, 236, 0.26);
+  transition: border-color 600ms, scale 600ms, box-shadow 800ms, background-color 600ms, height 650ms ease;
   scale: 1;
   font-weight: normal;
   position: relative;
   border-radius: 12px;
-  overflow: hidden; /* Prevent the title from moving outside the box */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  width: 100%;
 }
 
-.test:hover {
-  box-shadow: #f58fec 0 0 5px 5px;
-  border: 1px solid;
-  border-color: var(--pink);
-  scale: 1.02;
-  font-weight: 500;
-  transition: font-weight 600ms, border-color 600ms, scale 600ms, box-shadow 800ms;
+.test:focus {
+  outline: 2px solid rgba(245, 143, 236, 0.5);
+  outline-offset: 4px;
+}
+
+.test::before {
+  background: linear-gradient(90deg, var(--pink), var(--violet));
+  content: "";
+  height: 3px;
+  left: 0;
+  opacity: 0.85;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.test::after {
+  background: radial-gradient(circle at top right, rgba(245, 143, 236, 0.18), transparent 42%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.project-card-shell:hover .test,
+.test:focus-within {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34), rgba(245, 143, 236, 0.28) 0 0 22px;
+  border-color: rgba(245, 143, 236, 0.76);
+  scale: 1.015;
+  transition: border-color 600ms, scale 600ms, box-shadow 800ms, background-color 600ms, height 650ms ease;
   backdrop-filter: blur(3px);  
+}
+
+.project-card-shell {
+  min-width: 0;
 }
 
 .banner-elem {
@@ -100,10 +131,9 @@ div {
 
 h1 {
   color: white;
-  font-size: clamp(2em, 2vw, 4em);
+  font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 400;
   margin: 0px;
-  padding: 20px;
   text-align: center;
 }
 
@@ -172,7 +202,173 @@ h1 > .magic > .magic-text {
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+}
+
+.project-idle {
+  display: none;
+}
+
+.project-title,
+.project-idle-title {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.85rem, 8vw, 2.45rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  overflow-wrap: anywhere;
+  text-transform: lowercase;
+}
+
+.project-hint {
+  display: none;
+}
+
+.project-meta {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(0.72rem, 3.4vw, 0.84rem);
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  margin-top: 0.85rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.project-meta > span {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+}
+
+.project-status-current {
+  border-color: rgba(245, 143, 236, 0.58) !important;
+  box-shadow: 0 0 16px rgba(245, 143, 236, 0.18);
+  color: white;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.85rem, 2.8vw, 1.25rem);
+  margin-inline: auto;
+  max-width: 58ch;
+  padding-top: clamp(1.35rem, 4vw, 2rem);
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.05rem, 4.6vw, 1.32rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.project-details > div {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-details > div::before {
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(245, 143, 236, 0.35);
+  content: "";
+  flex: 0 0 0.45rem;
+  height: 0.45rem;
+  margin-top: 0.58em;
+}
+
+@media (min-width: 768px) {
+  .project-card-shell {
+    align-items: center;
+    display: flex;
+    height: calc(100vh - 5rem);
+    min-width: 0;
+  }
+
+  .test {
+    height: 100%;
+  }
+
+  .project-card-shell:hover .test,
+  .test:focus-within {
+    height: var(--project-fit-height, 28rem);
+  }
+
+  .project-idle {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    inset: 0;
+    justify-content: center;
+    padding: clamp(22px, 5vw, 34px);
+    position: absolute;
+    text-align: center;
+    transition: opacity 450ms ease;
+    z-index: 1;
+  }
+
+  .project-card-shell:hover .project-idle,
+  .test:focus-within .project-idle {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .project-content {
+    opacity: 0;
+    transition: opacity 350ms ease 180ms;
+  }
+
+  .project-card-shell:hover .project-content,
+  .test:focus-within .project-content {
+    opacity: 1;
+  }
+
+  .project-title {
+    font-size: clamp(1.45rem, 2.25vw, 1.85rem);
+  }
+
+  .project-content .project-meta {
+    font-size: clamp(0.66rem, 0.85vw, 0.76rem);
+    margin-top: 0.7rem;
+  }
+
+  .project-hint {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.76);
+    display: flex;
+    font-size: 1.15rem;
+    height: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+    transition: border-color 300ms ease, color 300ms ease, transform 300ms ease;
+    width: 2rem;
+  }
+
+  .project-card-shell:hover .project-hint,
+  .test:focus-within .project-hint {
+    border-color: rgba(245, 143, 236, 0.55);
+    color: white;
+    transform: scale(1.08);
+  }
+
+  .project-details {
+    gap: clamp(0.75rem, 1.25vw, 1.15rem);
+    max-width: 42rem;
+    padding: clamp(4.75rem, 8vw, 6rem) 0.1rem 0;
+    font-size: clamp(1rem, 1.42vw, 1.24rem);
+  }
 }
 
 /* -- YouTube Link Styles -- */

@@ -4,26 +4,26 @@ import "../index.css"
 export default function Hello({ children }) {
 
     return (
-        <div className=" grid place-items-center h-full ">
-            <div className="flex flex-col">
-            <div className="">
-                <h1 className="text-5xl font-semibold font-display text-white">
-                    hi, i am kameron.
+        <div className="grid h-full w-full place-items-center">
+            <div className="flex w-full max-w-5xl flex-col items-center">
+            <div className="w-full">
+                <h1 className="px-0 py-2 text-center font-display text-[clamp(1.75rem,8vw,3.5rem)] font-semibold leading-tight text-white">
+                    hi, i am kameron,
                 </h1>
-                <h1 className="text-5xl font-semibold font-display text-white" >
-                    {"i study "}
+                <h1 className="px-0 py-2 text-center font-display text-[clamp(1.5rem,7vw,3.25rem)] font-semibold leading-tight text-white" >
+                    {"an "}
                     <span className="magic">
                         <span 
                         style={{letterSpacing: "1px"}}
                         className="magic-text">
-                            computer engineering
+                            electrical engineering
                         </span>
                     </span>
-                    {" at uc san diego."}
+                    {" phd student."}
                     
                 </h1>
             </div>
-                <div className="py-4">
+                <div className="w-full py-4">
                         { children }
                 </div>
             </div>

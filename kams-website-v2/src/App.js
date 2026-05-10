@@ -5,7 +5,7 @@ import Project from "./pages/Projects";
 
 function App() {
   return (
-       <div  className="w-screen h-screen overflow-auto">
+       <div className="min-h-screen w-full overflow-x-hidden bg-[#001220]">
           <Landing />
           <Project />
         </div>                 
