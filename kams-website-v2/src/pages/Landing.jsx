@@ -8,6 +8,43 @@ import gscholar from "../images/g-logo.png";
 
 
 export default function Landing() {
+    const scrollToResearch = () => {
+      const researchHeading = document.getElementById("research");
+
+      if (!researchHeading) {
+        return;
+      }
+
+      const startPosition = window.scrollY;
+      const targetPosition = researchHeading.getBoundingClientRect().top + window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 100;
+      let startTime = null;
+
+      const easeOutQuad = (progress) => 1 - (1 - progress) * (1 - progress);
+
+      const animateScroll = (currentTime) => {
+        if (!startTime) {
+          startTime = currentTime;
+        }
+
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuad(progress);
+
+        window.scrollTo(0, startPosition + distance * easedProgress);
+
+        if (progress < 1) {
+          window.requestAnimationFrame(animateScroll);
+          return;
+        }
+
+        window.history.pushState(null, "", "#research");
+      };
+
+      window.scrollTo(0, startPosition + distance * 0.08);
+      window.requestAnimationFrame(animateScroll);
+    };
 
     return(
         <section 
@@ -53,6 +90,15 @@ export default function Landing() {
                       </a> 
                     </div>
                   </div>
+                  <button
+                    aria-label="Learn more about my research"
+                    className="scroll-cue"
+                    onClick={scrollToResearch}
+                    type="button"
+                  >
+                    <span>learn more</span>
+                    <span aria-hidden="true" className="scroll-cue-chevron" />
+                  </button>
                 </div>
               </div>
           </section>

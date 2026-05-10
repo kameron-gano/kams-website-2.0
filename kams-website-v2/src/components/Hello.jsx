@@ -8,7 +8,7 @@ export default function Hello({ children }) {
             <div className="flex w-full max-w-5xl flex-col items-center">
             <div className="w-full">
                 <h1 className="px-0 py-2 text-center font-display text-[clamp(1.75rem,8vw,3.5rem)] font-semibold leading-tight text-white">
-                    hi, i am kameron,
+                    hey i am kameron!
                 </h1>
                 <h1 className="px-0 py-2 text-center font-display text-[clamp(1.5rem,7vw,3.25rem)] font-semibold leading-tight text-white" >
                     {"an "}
