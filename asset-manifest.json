@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/kams-website-2.0/static/css/main.aa0d08fe.css",
-    "main.js": "/kams-website-2.0/static/js/main.5fd1f073.js",
-    "static/media/linkedin-square.png": "/kams-website-2.0/static/media/linkedin-square.4cfc41a245d52413182c.png",
+    "main.css": "/kams-website-2.0/static/css/main.3749f211.css",
+    "main.js": "/kams-website-2.0/static/js/main.9a564cd2.js",
+    "static/media/g-logo.png": "/kams-website-2.0/static/media/g-logo.e7dcae656b45572fd4f1.png",
     "static/media/landing.svg": "/kams-website-2.0/static/media/landing.3c8e909f4e2539f06ade3a78d1a33bb7.svg",
     "static/media/about.svg": "/kams-website-2.0/static/media/about.f195a8abba8a63c7af0c8cc5622d7668.svg",
     "static/media/github-mark-white.svg": "/kams-website-2.0/static/media/github-mark-white.97ed8e7eef60d61ca469881dd6f34511.svg",
     "index.html": "/kams-website-2.0/index.html",
-    "main.aa0d08fe.css.map": "/kams-website-2.0/static/css/main.aa0d08fe.css.map",
-    "main.5fd1f073.js.map": "/kams-website-2.0/static/js/main.5fd1f073.js.map"
+    "main.3749f211.css.map": "/kams-website-2.0/static/css/main.3749f211.css.map",
+    "main.9a564cd2.js.map": "/kams-website-2.0/static/js/main.9a564cd2.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa0d08fe.css",
-    "static/js/main.5fd1f073.js"
+    "static/css/main.3749f211.css",
+    "static/js/main.9a564cd2.js"
   ]
 }
